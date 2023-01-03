@@ -1,0 +1,43 @@
+<div class="modalWindow">
+  <div class="contentModal" ref="contentModal">
+    <div class="contentModal__back">
+      <div class="contentModal__position">
+        <div click="handleBackgroundClose">
+          <div
+            class="contentModal__body"
+            role="dialog"
+            aria-modal="true"
+            tabindex="-1"
+            ref="dialogBody"
+            keydown="focusTrap"
+          >
+            <div
+              class="contentModal__close"
+              (click)="close.emit()"
+              v-if="!notClosable"
+            ></div>
+
+            <div class="modalH3">{{ header }}</div>
+            <div class="cart__modal-content">
+                <div class="row">
+                  <div class="col-4">Название</div>
+                  <div class="col-8"><input type="text" name="title" [(ngModel)]="todo.title" class="inputText"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Содержание</div>
+                  <div class="col-8"><input type="text" name="content"  [(ngModel)]="todo.content" class="inputText"/></div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Дата и время</div>
+                  <div class="col-8"><input type="datetime-local" name="date" [(ngModel)]="todo.date" class="inputText"/></div>
+                </div>
+                <div class="row">
+                  <div class="btn btn-primary inputBtn" (click)="save.emit()">Добавить</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
